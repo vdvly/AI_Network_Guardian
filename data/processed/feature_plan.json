@@ -1,0 +1,54 @@
+{
+  "numeric_features": [
+    "duration",
+    "packet_count",
+    "bytes_sent",
+    "bytes_received",
+    "bytes_per_packet"
+  ],
+  "categorical_features": [
+    "protocol"
+  ],
+  "identifiers": [
+    "source_ip_int",
+    "destination_ip_int"
+  ],
+  "port_cols": [
+    "source_port",
+    "destination_port"
+  ],
+  "datetime": "time",
+  "features": [
+    "duration",
+    "packet_count",
+    "bytes_sent",
+    "bytes_received",
+    "bytes_per_packet",
+    "protocol"
+  ],
+  "context": [
+    "row_id",
+    "time",
+    "source_ip_int",
+    "destination_ip_int",
+    "source_port",
+    "destination_port"
+  ],
+  "excluded": {
+    "label": "target (kept separately as y)",
+    "source_ip_int": "identifier: excluded from model features",
+    "destination_ip_int": "identifier: excluded from model features",
+    "row_id": "raw context: used for enrichment",
+    "time": "raw context: used for enrichment",
+    "source_port": "raw context: used for enrichment",
+    "destination_port": "raw context: used for enrichment"
+  },
+  "split": {
+    "strategy": "stratified",
+    "test_size": 0.2,
+    "random_state": 42,
+    "train_rows": 8004,
+    "test_rows": 2001,
+    "train_test_feature_twins": 0
+  }
+}

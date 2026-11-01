@@ -1,0 +1,14 @@
+column,status,reason
+row_id,excluded,raw context: used for enrichment
+time,excluded,raw context: used for enrichment
+source_ip_int,excluded,identifier: excluded from model features
+destination_ip_int,excluded,identifier: excluded from model features
+source_port,excluded,raw context: used for enrichment
+destination_port,excluded,raw context: used for enrichment
+protocol,feature candidate,
+duration,feature candidate,
+packet_count,feature candidate,
+bytes_sent,feature candidate,
+bytes_received,feature candidate,
+label,excluded,target (kept separately as y)
+bytes_per_packet,feature candidate,

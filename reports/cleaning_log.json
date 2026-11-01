@@ -1,0 +1,26 @@
+{
+  "raw_file": "network_traffic.csv",
+  "raw_rows": 10005,
+  "raw_columns": 12,
+  "infinite_values_set_to_nan": 0,
+  "rows_dropped_missing_label": 0,
+  "exact_duplicates_removed": 0,
+  "invalid_cells_set_to_nan": {
+    "duration": 0,
+    "packet_count": 0,
+    "bytes_sent": 0,
+    "bytes_received": 0,
+    "bytes_per_packet": 0,
+    "source_port": 0,
+    "destination_port": 0,
+    "source_ip_int": 0,
+    "destination_ip_int": 0
+  },
+  "class_counts": {
+    "0": 8000,
+    "1": 2005
+  },
+  "clean_rows": 10005,
+  "clean_columns": 13,
+  "rows_removed_total": 0
+}
