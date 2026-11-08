@@ -6,6 +6,7 @@ DATA_RAW = ROOT / "data" / "raw"
 DATA_PROCESSED = ROOT / "data" / "processed"
 MODELS = ROOT / "models"
 REPORTS = ROOT / "reports"
+PLOTS = ROOT / "plots"
 
 RANDOM_STATE = 42
 TEST_SIZE = 0.20

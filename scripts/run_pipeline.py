@@ -16,6 +16,7 @@ plt.show = lambda *args, **kwargs: None
 ROOT = Path(__file__).resolve().parents[1]
 NOTEBOOKS = ROOT / "notebooks"
 BUILD = ROOT / "build"
+PLOTS = ROOT / "plots"
 NOTEBOOK_NAMES = [
     "01_data_cleaning.ipynb",
     "02_data_transformation.ipynb",
@@ -39,16 +40,19 @@ def save_graphs(graph_number: list[int]) -> None:
     figure_numbers = plt.get_fignums()
     for figure_number in figure_numbers:
         graph_number[0] += 1
-        plt.figure(figure_number).savefig(
-            BUILD / f"graph_{graph_number[0]:02d}.png",
-            dpi=120,
-            bbox_inches="tight",
-        )
+        filename = f"graph_{graph_number[0]:02d}.png"
+        for output_directory in (BUILD, PLOTS):
+            plt.figure(figure_number).savefig(
+                output_directory / filename,
+                dpi=120,
+                bbox_inches="tight",
+            )
     plt.close("all")
 
 
 def main() -> None:
     BUILD.mkdir(exist_ok=True)
+    PLOTS.mkdir(exist_ok=True)
     graph_number = [0]
     original_directory = Path.cwd()
     os.chdir(NOTEBOOKS)
@@ -66,6 +70,7 @@ def main() -> None:
         "status": "success",
         "notebooks": completed,
         "graphs": sorted(path.name for path in BUILD.glob("graph_*.png")),
+        "plot_directory": str(PLOTS.relative_to(ROOT)),
         "processed_outputs": sorted(
             path.name for path in (ROOT / "data" / "processed").iterdir()
         ),
